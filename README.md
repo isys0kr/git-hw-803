@@ -68,7 +68,7 @@ docker run -d --name gitlab-runner --restart always --network host -v /srv/gitla
 
 `При необходимости прикрепитe сюда скриншоты
 ![Успешный пайплайн](img/img-pipelinepassed.png)`
-![Результат на веб интерфейсе GitLab](img/img-result.png)
+![Результат на веб интерфейсе GitLab](img/img-result.png)`
 
 
 ---
