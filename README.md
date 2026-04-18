@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Название занятия`" - `Фамилия и имя студента`
+# Домашнее задание к занятию "`dz-803`" - `KHRISTOFOROV KONSTANTIN`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -26,23 +26,27 @@
 
 `Приведите ответ в свободной форме........`
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
+В связи с техническими ограничениями локального оборудования (отсутствие поддержки вложенной виртуализации для Vagrant/VirtualBox и конфликты пакетов в Debian Trixie), инфраструктура была развернута альтернативным способом на виртуальной машине в Yandex Cloud (Ubuntu 22.04, 4 vCPU, 8 GB RAM).
+1. GitLab CE установлен нативно через Omnibus-пакет (`apt install gitlab-ce`).
+2. Проект `git-hw803` создан в веб-интерфейсе.
+3. GitLab Runner зарегистрирован для проекта и запущен в режиме Docker (Docker-in-Docker) на той же ВМ.
 4. `Заполните здесь этапы выполнения, если требуется ....`
 5. `Заполните здесь этапы выполнения, если требуется ....`
 6. 
 
 ```
 Поле для вставки кода...
-....
-....
-....
-....
+```bash
+curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+sudo EXTERNAL_URL="http://111.88.158.237" apt install gitlab-ce
 ```
+# Регистрация
+docker run -ti --rm --name gitlab-runner-register --network host -v /srv/gitlab-runner/config:/etc/gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest register
 
+# Запуск
+docker run -d --name gitlab-runner --restart always --network host -v /srv/gitlab-runner/config:/etc/gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest
 `При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
+![Настройки раннера в проекте GitLab](img/img-gitlabrunner.png)
 
 
 ---
